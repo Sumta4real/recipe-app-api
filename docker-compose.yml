@@ -1,0 +1,22 @@
+#specify the version of the docker-compose to be used
+version: '3.9'
+
+#write out details of services 
+services:
+  app:
+  #build the docker file in the root directory we are currently working on (context==.) 
+    build:
+      context: .
+      args:
+        - DEV=true
+    #maps port 8000 on the local to port 8000 on the container
+    ports:
+      - "8000:8000"
+    #maps app directory on local to /app directory in the container
+    volumes:
+      - ./app:/app
+    #default command to run in the container
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+#TO BUILD DOCKER IMAGE VIA DOCKERFILE, RUN ::: docker-compose build
