@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME}}
           password: ${{ secrets.DOCKERHUB_TOKEN}}
       - name: Checkout
-        uses: action/checkout@v2 #checks out our code inside the 
+        uses: actions/checkout@v2 #checks out our code inside the 
       - name: Test
         run: docker-compose run --rm app sh -c "python manage.py test" #run the test
       - name: Lint
