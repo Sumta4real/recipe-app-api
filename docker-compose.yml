@@ -1,5 +1,5 @@
 #specify the version of the docker-compose to be used
-version: '3.9'
+version: "3.9"
 
 #write out details of services 
 services:
